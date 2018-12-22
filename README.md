@@ -13,7 +13,7 @@ The provided API consist of the following methods:
 
 `POST` `/withdraw/:id?amount=:amount` Withdraws specified amount from specified account.
 
-`POST` `/transfer?fromId=:fromId&amp;toId=:toId&amp;amount=:amount`  Transfers specified amount between specified
+`POST` `/transfer?fromId=:fromId&toId=:toId&amount=:amount`  Transfers specified amount between specified
 accounts.
 
 `GET` `/balance/:id` Returns balance of specified account.
@@ -29,7 +29,7 @@ $ curl -X POST http://localhost:8080/account
 2
 $ curl -X POST http://localhost:8080/deposit/1?amount=100
 $ curl -X POST http://localhost:8080/deposit/2?amount=100
-$ curl -X POST http://localhost:8080/transfer?fromId=1&amp;toId=2&amp;amount=42
+$ curl -X POST http://localhost:8080/transfer?fromId=1&toId=2&amount=42
 $ curl http://localhost:8080/balance/1
 58
 $ curl http://localhost:8080/balance/2
