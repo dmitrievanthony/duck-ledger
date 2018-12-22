@@ -36,9 +36,6 @@ public class InMemoryLedgerService implements LedgerService {
         checkAccountExists(fromId);
         checkAccountExists(toId);
 
-        long fromBalance = balances.get(fromId);
-        long toBalance = balances.get(toId);
-
         Lock fromLock = locks.computeIfAbsent(fromId, k -> new ReentrantLock());
         Lock toLock = locks.computeIfAbsent(toId, k -> new ReentrantLock());
 
@@ -51,6 +48,9 @@ public class InMemoryLedgerService implements LedgerService {
             toLock.lock();
             fromLock.lock();
         }
+
+        long fromBalance = balances.get(fromId);
+        long toBalance = balances.get(toId);
 
         try {
             withdraw(fromId, amount);
