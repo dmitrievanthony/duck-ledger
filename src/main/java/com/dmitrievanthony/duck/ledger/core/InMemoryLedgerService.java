@@ -73,20 +73,36 @@ public class InMemoryLedgerService implements LedgerService {
     @Override public void withdraw(long id, long amount) {
         checkAccountExists(id);
 
-        balances.compute(id, (accId, prevAmount) -> {
-            long newAmount = Math.subtractExact(prevAmount, amount);
-            if (newAmount < 0)
-                throw new InsufficientFundsException();
+        Lock lock = locks.computeIfAbsent(id, k -> new ReentrantLock());
+        lock.lock();
 
-            return newAmount;
-        });
+        try {
+            balances.compute(id, (accId, prevAmount) -> {
+                long newAmount = Math.subtractExact(prevAmount, amount);
+                if (newAmount < 0)
+                    throw new InsufficientFundsException();
+
+                return newAmount;
+            });
+        }
+        finally {
+            lock.unlock();
+        }
     }
 
     /** {@inheritDoc} */
     @Override public void deposit(long id, long amount) {
         checkAccountExists(id);
 
-        balances.compute(id, (accId, prevAmount) -> Math.addExact(prevAmount, amount));
+        Lock lock = locks.computeIfAbsent(id, k -> new ReentrantLock());
+        lock.lock();
+
+        try {
+            balances.compute(id, (accId, prevAmount) -> Math.addExact(prevAmount, amount));
+        }
+        finally {
+            lock.unlock();
+        }
     }
 
     /** {@inheritDoc} */
