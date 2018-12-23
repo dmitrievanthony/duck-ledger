@@ -40,6 +40,7 @@ public class InMemoryLedgerService implements LedgerService {
         Lock toLock = locks.computeIfAbsent(toId, k -> new ReentrantLock());
 
         // Here we always need to lock account in the same order to avoid deadlocks.
+        // The rest logic is similar to REPEATABLE READ transaction isolation level.
         if (fromId > toId) {
             fromLock.lock();
             toLock.lock();
