@@ -29,7 +29,7 @@ $ curl -X POST http://localhost:8080/account
 2
 $ curl -X POST http://localhost:8080/deposit/1?amount=100
 $ curl -X POST http://localhost:8080/deposit/2?amount=100
-$ curl -X POST http://localhost:8080/transfer?fromId=1&toId=2&amount=42
+$ curl -X POST "http://localhost:8080/transfer?fromId=1&toId=2&amount=42"
 $ curl http://localhost:8080/balance/1
 58
 $ curl http://localhost:8080/balance/2
