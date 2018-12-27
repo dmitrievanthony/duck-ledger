@@ -1,11 +1,7 @@
-# Duck Ledger #
+# Duck Ledger # [![Build Status](https://travis-ci.org/dmitrievanthony/duck-ledger.svg?branch=master)](https://travis-ci.org/dmitrievanthony/duck-ledger)
 
 Duck Ledger is an accounting and money transfer service providing a simple REST API. The provided solution is based on a
 single-node in-memory solution and has correspondent limitations (no durability, no linear scalability).
-
-## Master Branch ##
-
-Build status: [![Build Status](https://travis-ci.org/dmitrievanthony/duck-ledger.svg?branch=master)](https://travis-ci.org/dmitrievanthony/duck-ledger)
 
 ## REST API ##
 
@@ -42,7 +38,7 @@ $ curl http://localhost:8080/balance/2
 
 ## Docker ##
 
-Travis CI automatically builds Docker images and pushes them on Docker Hub. You can get and start the image using the following command:
+Travis CI automatically builds Docker [image](https://cloud.docker.com/repository/docker/dmitrievanthony/duck-ledger) and pushes it on Docker Hub. You can get and start this image using the following command:
 
 ```
 docker run -it -p 8080:8080 dmitrievanthony/duck-ledger:1.0-SNAPSHOT
