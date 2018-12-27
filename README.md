@@ -1,4 +1,4 @@
-# Duck Ledger # [![Build Status](https://travis-ci.org/dmitrievanthony/duck-ledger.svg?branch=master)](https://travis-ci.org/dmitrievanthony/duck-ledger)
+# Duck Ledger [![Build Status](https://travis-ci.org/dmitrievanthony/duck-ledger.svg?branch=master)](https://travis-ci.org/dmitrievanthony/duck-ledger) #
 
 Duck Ledger is an accounting and money transfer service providing a simple REST API. The provided solution is based on a
 single-node in-memory solution and has correspondent limitations (no durability, no linear scalability).
