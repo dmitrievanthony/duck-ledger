@@ -41,5 +41,5 @@ $ curl http://localhost:8080/balance/2
 Travis CI automatically builds Docker [image](https://cloud.docker.com/repository/docker/dmitrievanthony/duck-ledger) and pushes it on Docker Hub. You can get and start this image using the following command:
 
 ```
-docker run -it -p 8080:8080 dmitrievanthony/duck-ledger:1.0-SNAPSHOT
+docker run -it -p 8080:8080 dmitrievanthony/duck-ledger
 ```
