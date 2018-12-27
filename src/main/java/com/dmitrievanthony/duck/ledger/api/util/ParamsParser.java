@@ -17,7 +17,7 @@ public class ParamsParser {
         String val = request.params(name);
 
         if (val == null)
-            throw new IllegalArgumentException("Parameter is required [name = " + name + "]");
+            throw new IllegalArgumentException("Parameter is required [name=" + name + "]");
 
         return Long.valueOf(val);
     }
@@ -33,7 +33,7 @@ public class ParamsParser {
         String val = request.queryParams(name);
 
         if (val == null)
-            throw new IllegalArgumentException("Query parameter is required [name = " + name + "]");
+            throw new IllegalArgumentException("Query parameter is required [name=" + name + "]");
 
         return Long.valueOf(val);
     }
