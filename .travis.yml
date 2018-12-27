@@ -1,1 +1,10 @@
 language: java
+
+jobs:
+  include: 
+    - stage: deploy
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password_stdin
+      - docker build -t duck-ledger:1.0-SNAPSHOT .
+      - docker tag duck-ledger:1.0-SNAPSHOT $DOCKER_USERNAME/duck-ledger:1.0-SNAPSHOT
+      - docker push $DOCKER_USERNAME/duck-ledger:1.0-SNAPSHOT
