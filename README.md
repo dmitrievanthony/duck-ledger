@@ -22,7 +22,7 @@ accounts.
 
 You can use `curl` to try this service.
 
-```
+```bash
 $ curl -X POST http://localhost:8080/account
 1
 $ curl -X POST http://localhost:8080/account
@@ -40,6 +40,6 @@ $ curl http://localhost:8080/balance/2
 
 Travis CI automatically builds Docker [image](https://cloud.docker.com/repository/docker/dmitrievanthony/duck-ledger) and pushes it on Docker Hub. You can get and start this image using the following command:
 
-```
+```bash
 docker run -it -p 8080:8080 dmitrievanthony/duck-ledger
 ```
